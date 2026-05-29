@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 430" role="img" aria-labelledby="title desc">
+  <title id="title">Wall component and cladding zone notation</title>
+  <desc id="desc">A simplified reference diagram showing wall zones 4 and 5, roof slope theta, and notation for a, h, and b.</desc>
+  <rect width="760" height="430" fill="#fff"/>
+  <g fill="none" stroke="#1c2530" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round">
+    <polygon points="315,55 550,55 640,132 405,132"/>
+    <polygon points="405,132 640,132 640,240 405,240"/>
+    <polygon points="315,55 405,132 405,240 315,165"/>
+    <polyline points="315,55 456,8 690,82 640,132"/>
+    <polyline points="456,8 550,55"/>
+    <line x1="405" y1="132" x2="456" y2="8"/>
+    <line x1="640" y1="132" x2="690" y2="82"/>
+    <line x1="315" y1="165" x2="405" y2="240"/>
+  </g>
+  <g fill="none" stroke="#1c2530" stroke-width="1.5" stroke-linecap="round">
+    <line x1="274" y1="176" x2="315" y2="165"/>
+    <line x1="289" y1="190" x2="333" y2="178"/>
+    <line x1="326" y1="242" x2="365" y2="278"/>
+    <line x1="405" y1="240" x2="433" y2="274"/>
+    <line x1="640" y1="240" x2="677" y2="258"/>
+    <line x1="676" y1="92" x2="718" y2="108"/>
+    <line x1="676" y1="258" x2="718" y2="274"/>
+    <line x1="704" y1="114" x2="704" y2="265"/>
+    <line x1="390" y1="160" x2="442" y2="152"/>
+    <path d="M403 164 A55 55 0 0 1 451 183"/>
+  </g>
+  <g fill="#fff" stroke="#1c2530" stroke-width="2">
+    <circle cx="340" cy="148" r="14"/>
+    <circle cx="382" cy="159" r="14"/>
+    <circle cx="410" cy="218" r="14"/>
+    <circle cx="438" cy="198" r="14"/>
+    <circle cx="626" cy="144" r="14"/>
+  </g>
+  <g fill="#1c2530" font-family="Times New Roman, serif" font-size="19" text-anchor="middle">
+    <text x="340" y="154">5</text>
+    <text x="382" y="165">4</text>
+    <text x="410" y="224">5</text>
+    <text x="438" y="204">5</text>
+    <text x="626" y="150">5</text>
+  </g>
+  <g fill="#1c2530" font-family="Times New Roman, serif" font-size="18">
+    <text x="286" y="208" transform="rotate(-20 286 208)">a</text>
+    <text x="354" y="286" transform="rotate(42 354 286)">a</text>
+    <text x="428" y="288" transform="rotate(42 428 288)">a</text>
+    <text x="720" y="190">h</text>
+    <text x="678" y="284" transform="rotate(24 678 284)">b</text>
+    <text x="448" y="174">&#952;</text>
+    <text x="420" y="305" font-size="17">ELEVATION</text>
+  </g>
+  <g fill="#202020" font-family="Times New Roman, serif">
+    <text x="22" y="318" font-size="20" font-style="italic" font-weight="700">Notation</text>
+    <text x="22" y="344" font-size="18">
+      <tspan font-style="italic">a</tspan>
+      <tspan> = 10% of least horizontal dimension or 0.4</tspan>
+      <tspan font-style="italic">h</tspan>
+      <tspan>, whichever is smaller,</tspan>
+    </text>
+    <text x="42" y="368" font-size="18">but not less than either 4% of least horizontal dimension or 3 ft (0.9 m).</text>
+    <text x="22" y="394" font-size="18">
+      <tspan font-style="italic">h</tspan>
+      <tspan> = mean roof height; </tspan>
+      <tspan font-style="italic">&#952;</tspan>
+      <tspan> = angle of plane of roof from horizontal.</tspan>
+    </text>
+  </g>
+</svg>

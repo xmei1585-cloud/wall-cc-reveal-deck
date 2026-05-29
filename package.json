@@ -1,0 +1,12 @@
+{
+  "name": "wall-cc-reveal-deck",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "start": "python3 -m http.server 4173 --bind 0.0.0.0"
+  },
+  "dependencies": {
+    "katex": "^0.16.22",
+    "reveal.js": "5.1.0"
+  }
+}

@@ -1,0 +1,567 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wall C&amp;C Extreme Wind Pressures</title>
+    <link rel="icon" href="data:,">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.css">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section class="cover-slide">
+          <div class="wind-lines" aria-hidden="true">
+            <svg viewBox="0 0 1200 700" role="img">
+              <path d="M-40 190 C210 110 300 270 540 190 C760 118 930 126 1240 78"></path>
+              <path d="M-60 278 C170 212 330 354 565 282 C770 219 950 232 1240 190"></path>
+              <path d="M-20 370 C210 310 330 455 570 380 C790 312 944 330 1220 284"></path>
+              <path d="M-40 470 C210 404 340 548 610 468 C810 408 980 420 1240 384"></path>
+            </svg>
+          </div>
+          <div class="cover-content">
+            <p class="eyebrow intro-fade">Comprehensive Exam</p>
+            <h1 class="intro-fade">
+              Effects of Building Geometry on Extreme Wind Pressures on Wall Components and Cladding
+            </h1>
+          </div>
+          <div class="meta-block intro-fade">
+            <span>Xiaohan Mei</span>
+            <span>Supervisor: Dr. Jin Wang</span>
+            <span>June 5, 2026</span>
+          </div>
+          <aside class="notes">
+            Introduce the comprehensive exam topic and frame the study as a geometry-dependent investigation of wall components and cladding wind demand.
+          </aside>
+        </section>
+
+        <section>
+          <div class="slide-header">
+            <p class="eyebrow">Motivation</p>
+            <h2>Why Wall C&amp;C Extreme Pressures Matter</h2>
+            <p class="core-message">Failure of wall components and cladding can breach the envelope and trigger safety and serviceability consequences.</p>
+          </div>
+          <div class="split-layout">
+            <figure class="visual-card zoomable">
+              <img class="damage-photo" src="assets/envelope-damage.png" alt="Wind-induced envelope damage on a glazed facade">
+              <figcaption>Example of building envelope damage</figcaption>
+            </figure>
+            <div class="content-stack">
+              <div class="logic-chain fragment fade-up">
+                <span>Localized extreme wind pressure</span>
+                <strong>&rarr;</strong>
+                <span>Envelope failure</span>
+                <strong>&rarr;</strong>
+                <span>Multiple damage consequences</span>
+              </div>
+              <div class="consequence-grid">
+                <article class="mini-card fragment fade-up" data-note="Envelope breach can compromise gas-line safety around damaged service penetrations.">
+                  <strong>Gas leakage</strong>
+                </article>
+                <article class="mini-card fragment fade-up" data-note="Rainwater intrusion can propagate quickly through wall assemblies and interior finishes.">
+                  <strong>Water intrusion</strong>
+                </article>
+                <article class="mini-card fragment fade-up" data-note="Water leakage may damage electrical systems and increase downstream safety risk.">
+                  <strong>Electrical damage</strong>
+                </article>
+                <article class="mini-card fragment fade-up" data-note="Air leakage reduces enclosure performance and can affect comfort, energy use, and function.">
+                  <strong>Air leakage</strong>
+                </article>
+                <article class="mini-card fragment fade-up" data-note="Detached glass or curtain-wall elements can become hazardous falling debris.">
+                  <strong>Falling facade elements</strong>
+                </article>
+                <article class="mini-card fragment fade-up" data-note="Damage can extend beyond the building envelope to pedestrians and public space.">
+                  <strong>Pedestrian injury risk</strong>
+                </article>
+              </div>
+              <div class="takeaway fragment fade-up">
+                Once the envelope is breached, damage may extend well beyond the local component itself.
+              </div>
+            </div>
+          </div>
+          <aside class="notes">
+            Explain that wall C&amp;C failure is not merely a local component issue. A breach can lead to water intrusion, electrical damage, air leakage, falling facade elements, and public safety risk.
+          </aside>
+        </section>
+
+        <section class="geometry-slide">
+          <div class="slide-header">
+            <p class="eyebrow">Key Factor</p>
+            <h2>Building Geometry Shapes Wall Extreme-Pressure Patterns</h2>
+            <p class="core-message">Geometry modifies local flow structures and changes where extreme pressures appear on wall C&amp;C elements.</p>
+          </div>
+          <div class="center-chain">
+            <span>Building geometry</span><b>&rarr;</b><span>Flow separation / wake structure</span><b>&rarr;</b><span>Wall pressure topology</span>
+          </div>
+          <div class="comparison-grid">
+            <article class="building-card geometry-card">
+              <figure class="geometry-image-frame pressure-top">
+                <img src="assets/geometry-slender-pressure-map.png" alt="Slender building wall pressure distribution map">
+              </figure>
+              <div>
+                <h3>Slender / narrow geometry</h3>
+                <p>Extreme pressures may appear near the upper-central region of the wall.</p>
+              </div>
+            </article>
+            <article class="building-card geometry-card geometry-card-delayed fragment fade-up">
+              <figure class="geometry-image-frame pressure-edge">
+                <img src="assets/geometry-squat-pressure-map.png" alt="Squat building wall pressure distribution map">
+                <span class="corner-pulse corner-tl" aria-hidden="true"></span>
+                <span class="corner-pulse corner-tr" aria-hidden="true"></span>
+                <span class="corner-pulse corner-bl" aria-hidden="true"></span>
+                <span class="corner-pulse corner-br" aria-hidden="true"></span>
+              </figure>
+              <div>
+                <h3>Low-rise / squat geometry</h3>
+                <p>Extreme pressures may concentrate near wall edges and corner-influenced regions.</p>
+              </div>
+            </article>
+          </div>
+          <p class="quiet-caption">Geometry modifies the flow; the flow controls the pressure pattern.</p>
+          <aside class="notes">
+            Use the two schematics to contrast upper-central pressure regions in slender buildings with edge-dominated patterns in low-rise or squat buildings.
+          </aside>
+        </section>
+
+        <section>
+          <div class="slide-header">
+            <p class="eyebrow">Code Context</p>
+            <h2>Current Code Provisions Do Not Fully Capture Geometry Effects</h2>
+            <p class="core-message">Code-based wall C&amp;C treatment simplifies where extremes occur, how zones are sized, and what controls pressure magnitude.</p>
+          </div>
+          <div class="two-panel">
+            <article class="figure-panel reference-panel zoomable">
+              <img class="reference-image reference-zones" src="assets/asce-wall-zones-original.png" alt="ASCE wall C and C zone notation diagram">
+              <h3>Code zoning definition</h3>
+              <p>A single straight-line template may not represent geometry-dependent wall pressure topologies.</p>
+            </article>
+            <article class="figure-panel reference-panel zoomable">
+              <img class="reference-image reference-curve" src="assets/asce-gcp-area-original.png" alt="ASCE external pressure coefficient versus effective wind area curve">
+              <h3>\(GC_p\)-area curve</h3>
+              <p>Effective wind area is necessary, but geometry may also influence extreme-pressure magnitude.</p>
+            </article>
+          </div>
+          <div class="takeaway fragment fade-up">A geometry-insensitive treatment may be inadequate across buildings with different dimensions and proportions.</div>
+          <aside class="notes">
+            Acknowledge that ASCE-style provisions are practical, then focus on three limitations: simplified zones, uniform zone size, and \(GC_p\) magnitude treated mainly through area.
+          </aside>
+        </section>
+
+        <section>
+          <div class="slide-header">
+            <p class="eyebrow">Research Gap</p>
+            <h2>Research Gaps in Wall C&amp;C Extreme-Pressure Analysis</h2>
+            <p class="core-message">A systematic understanding of geometry-dependent pressure patterns, mechanisms, and magnitudes remains limited.</p>
+          </div>
+          <div class="card-row">
+            <article class="research-card fragment fade-up">
+              <span class="card-index">Gap 01</span>
+              <h3>Limited systematic classification</h3>
+              <p>Prior findings are often tied to specific dimensions or narrow geometry ranges.</p>
+              <div class="chip-row"><span>Specific cases</span><span>Limited range</span><span>No class map</span></div>
+            </article>
+            <article class="research-card fragment fade-up">
+              <span class="card-index">Gap 02</span>
+              <h3>Insufficient mechanism interpretation</h3>
+              <p>Data-driven zoning is rarely connected back to separation, reattachment, shedding, and wake behavior.</p>
+              <div class="chip-row"><span>Flow link</span><span>Vortex shedding</span><span>POD / SPOD</span></div>
+            </article>
+            <article class="research-card fragment fade-up">
+              <span class="card-index">Gap 03</span>
+              <h3>Unclear geometry effect on magnitude</h3>
+              <p>Wall \(GC_p\) magnitude may depend on geometry, not only effective wind area.</p>
+              <div class="chip-row"><span>Pressure magnitude</span><span>Geometry</span><span>\(GC_p\) curves</span></div>
+            </article>
+          </div>
+          <div class="takeaway fragment fade-up">A systematic framework is needed to classify, interpret, and quantify geometry effects.</div>
+          <aside class="notes">
+            Move from code limitations into research gaps. The three gaps map directly to the three objectives on the next slide.
+          </aside>
+        </section>
+
+        <section>
+          <div class="slide-header">
+            <p class="eyebrow">Objectives</p>
+            <h2>Research Objectives</h2>
+            <p class="core-message">This study develops a geometry-dependent framework for wall C&amp;C extreme-pressure assessment.</p>
+          </div>
+          <div class="interactive-layout" data-interaction>
+            <div class="interactive-cards">
+              <button class="choice-card fragment fade-up is-active" data-card data-title="Objective 01 - Classify wall pressure patterns" data-detail="Identify and classify geometry-dependent wall extreme-pressure distribution patterns, including characteristic pressure topologies associated with \(B/H\), \(D/B\), \(D/H\), and overall dimensions." data-tags="Pattern recognition|Building geometry|Wall pressure topology">
+                <span>Objective 01</span>
+                <strong>Classify wall extreme-pressure patterns</strong>
+                <small>Responds to Gap 01</small>
+              </button>
+              <button class="choice-card fragment fade-up" data-card data-title="Objective 02 - Develop geometry-dependent zoning" data-detail="Develop aerodynamic wall zoning based on high-suction-sensitive regions, transition regions, and stable regions defined by geometry-dependent pressure behavior instead of fixed boundaries." data-tags="High-suction region|Transition region|Stable region|Zoning framework">
+                <span>Objective 02</span>
+                <strong>Develop aerodynamic zoning</strong>
+                <small>Responds to Gap 02</small>
+              </button>
+              <button class="choice-card fragment fade-up" data-card data-title="Objective 03 - Quantify \(GC_p\)-area-geometry relationship" data-detail="Clarify how wall \(GC_p\) varies with effective wind area and building geometric parameters, then develop \(GC_p\) curves that incorporate both area and geometry." data-tags="Effective wind area|Geometry effect|\(GC_p\) curves|Pressure magnitude">
+                <span>Objective 03</span>
+                <strong>Quantify \(GC_p\)-area-geometry relationship</strong>
+                <small>Responds to Gap 03</small>
+              </button>
+            </div>
+            <aside class="detail-panel fragment fade-up" data-detail-panel>
+              <h3 data-detail-title>Objective 01 - Classify wall pressure patterns</h3>
+              <p data-detail-text>Identify and classify geometry-dependent wall extreme-pressure distribution patterns, including characteristic pressure topologies associated with \(B/H\), \(D/B\), \(D/H\), and overall dimensions.</p>
+              <div class="chip-row" data-detail-tags><span>Pattern recognition</span><span>Building geometry</span><span>Wall pressure topology</span></div>
+            </aside>
+          </div>
+          <div class="takeaway fragment fade-up">The objectives connect classification, aerodynamic zoning, and \(GC_p\) prediction within one geometry-dependent framework.</div>
+          <aside class="notes">
+            Emphasize that each objective directly answers one research gap: classification, mechanism-informed zoning, and magnitude prediction.
+          </aside>
+        </section>
+
+        <section>
+          <div class="slide-header">
+            <p class="eyebrow">Data Need</p>
+            <h2>Limitations of Existing Databases and the Need for New Experiments</h2>
+            <p class="core-message">Existing public databases are valuable, but they are not sufficient for dense, systematic wall-region analysis.</p>
+          </div>
+          <p class="lead-line fragment fade-up">Critical regions are mainly near wall corners and edge zones, where extreme wall pressures often occur.</p>
+          <div class="database-grid" data-interaction>
+            <button class="database-card fragment fade-up" data-card data-title="NIST-UWO limitations" data-detail="The tallest model is about 12.2 m, dense taps are mainly on the roof, and wall pressure taps are relatively sparse. This limits systematic investigation of wall corner and edge pressure patterns." data-tags="Low-rise range|Roof-focused taps|Sparse wall taps">
+              <img class="database-image" src="assets/nist-uwo-tap-density.png" alt="NIST-UWO model showing dense roof taps and sparse wall taps">
+              <h3>NIST-UWO</h3>
+              <p>Limited height range and sparse wall taps.</p>
+            </button>
+            <button class="database-card fragment fade-up" data-card data-title="TPU limitations" data-detail="Wall pressure taps are relatively sparse, the geometry variation is not systematic enough, and the data are insufficient for detailed identification of wall pressure-pattern boundaries." data-tags="Sparse wall taps|Limited resolution|Non-systematic geometry">
+              <img class="database-image" src="assets/tpu-tap-density.png" alt="TPU model showing sparse wall pressure taps">
+              <h3>TPU</h3>
+              <p>Sparse wall taps and insufficiently systematic geometry variation.</p>
+            </button>
+            <aside class="detail-panel compact fragment fade-up" data-detail-panel>
+              <h3 data-detail-title>Overall database limitations</h3>
+              <p data-detail-text>Existing public datasets are valuable references, but together they provide limited systematic geometry variation and relatively sparse wall pressure measurements. This makes it difficult to resolve wall corner, edge, and transition pressure patterns in detail.</p>
+              <div class="chip-row" data-detail-tags><span>Limited geometry variation</span><span>Sparse wall taps</span><span>Insufficient wall-region resolution</span></div>
+            </aside>
+          </div>
+          <div class="takeaway fragment fade-up">A new experiment with systematic geometry variation and dense wall pressure measurements is required.</div>
+          <aside class="notes">
+            Explain why public databases are useful but cannot answer this study's questions alone. The key needs are wall tap density and systematic geometric variation.
+          </aside>
+        </section>
+
+        <section class="chapter-slide">
+          <p class="eyebrow">Technical Route</p>
+          <h2>From Motivation to Method</h2>
+          <p>The study moves from a unified database to pattern classification, geometry-dependent zoning, and geometry-informed \(GC_p\) relationships.</p>
+        </section>
+
+        <section>
+          <div class="slide-header">
+            <p class="eyebrow">Framework</p>
+            <h2>Overall Research Framework</h2>
+            <p class="core-message">A four-step route connects database construction to pressure-pattern classification, aerodynamic zoning, and \(GC_p\) parameter analysis.</p>
+          </div>
+          <div class="workflow" data-interaction>
+            <button class="workflow-step fragment fade-up is-active" data-card data-title="Step 01 - Database construction" data-detail="Establish a unified wall-pressure database by integrating new wind-tunnel measurements with selected NIST-UWO and TPU datasets." data-tags="New experiment|NIST-UWO|TPU|Unified database">
+              <span>01</span><strong>Database construction</strong>
+            </button>
+            <button class="workflow-step fragment fade-up" data-card data-title="Step 02 - Pattern-based classification" data-detail="Classify wall cases based on extreme-pressure distribution morphology and identify class boundaries using geometric parameters." data-tags="Pressure morphology|Wall classification|Geometry boundary">
+              <span>02</span><strong>Pattern classification</strong>
+            </button>
+            <button class="workflow-step fragment fade-up" data-card data-title="Step 03 - Geometry-dependent zoning" data-detail="Identify high-suction-sensitive, transition, and stable regions for each wall class, then relate region shapes to building geometry." data-tags="Sensitive region|Transition region|Stable region|Zoning">
+              <span>03</span><strong>Aerodynamic zoning</strong>
+            </button>
+            <button class="workflow-step fragment fade-up" data-card data-title="Step 04 - Pressure magnitude parameters" data-detail="Determine the key geometric and combined parameters controlling extreme-pressure magnitudes within different wall classes and regions." data-tags="Pressure magnitude|Effective area|Geometry parameters|\(GC_p\)">
+              <span>04</span><strong>\(GC_p\) parameter analysis</strong>
+            </button>
+            <aside class="detail-panel wide fragment fade-up" data-detail-panel>
+              <h3 data-detail-title>Step 01 - Database construction</h3>
+              <p data-detail-text>Establish a unified wall-pressure database by integrating new wind-tunnel measurements with selected NIST-UWO and TPU datasets.</p>
+              <div class="chip-row" data-detail-tags><span>New experiment</span><span>NIST-UWO</span><span>TPU</span><span>Unified database</span></div>
+            </aside>
+          </div>
+          <div class="takeaway fragment fade-up">Expected output: pressure-pattern classes, aerodynamic zoning, and \(GC_p\)-area-geometry relationships.</div>
+          <aside class="notes">
+            This slide is the bridge into the methodology section. Walk through the four steps from left to right.
+          </aside>
+        </section>
+
+        <section>
+          <div class="slide-header">
+            <p class="eyebrow">Step 01</p>
+            <h2>Building a Unified Wall-Pressure Database</h2>
+            <p class="core-message">A new wind-tunnel program provides systematic geometry variation, dense wall measurements, and consistent \(GC_p\) statistics.</p>
+          </div>
+          <div class="module-grid" data-interaction>
+            <button class="module-card fragment fade-up is-active" data-card data-title="Terrain exposure design" data-detail="Open and suburban terrain exposures will be tested to compare inflow effects and evaluate whether geometry effects vary by terrain condition." data-tags="Open terrain|Suburban terrain|Inflow effect">
+              <span>01</span><strong>Terrain exposure</strong><small>Open + suburban</small>
+            </button>
+            <button class="module-card fragment fade-up" data-card data-title="Systematic geometry variation" data-detail="Building proportions will be varied using \(B/H\), \(D/B\), and \(D/H\) so that transition boundaries between pressure-pattern classes can be identified." data-tags="\(B/H\)|\(D/B\)|\(D/H\)|Class boundaries">
+              <span>02</span><strong>Geometry matrix</strong><small>\(B/H\), \(D/B\), \(D/H\)</small>
+            </button>
+            <button class="module-card fragment fade-up" data-card data-title="Dense wall pressure measurements" data-detail="Wall pressure taps will be distributed densely and refined near wall corners and edge regions where critical C&C pressures often occur." data-tags="Dense wall taps|Corner refinement|Edge zones">
+              <span>03</span><strong>Wall measurement</strong><small>Dense taps</small>
+            </button>
+            <button class="module-card fragment fade-up" data-card data-title="Unified database construction" data-detail="New measurements will be integrated with selected public datasets using consistent \(GC_p\) statistical procedures for later classification and zoning." data-tags="New experiment|Public databases|Consistent \(GC_p\)">
+              <span>04</span><strong>Database construction</strong><small>New + public data</small>
+            </button>
+            <aside class="detail-panel wide fragment fade-up" data-detail-panel>
+              <h3 data-detail-title>Terrain exposure design</h3>
+              <p data-detail-text>Open and suburban terrain exposures will be tested to compare inflow effects and evaluate whether geometry effects vary by terrain condition.</p>
+              <div class="chip-row" data-detail-tags><span>Open terrain</span><span>Suburban terrain</span><span>Inflow effect</span></div>
+            </aside>
+          </div>
+          <div class="takeaway fragment fade-up">Output: a unified wall-pressure database for geometry-dependent C&amp;C extreme-pressure analysis.</div>
+          <aside class="notes">
+            Present this as the foundation of all later analyses. The new experiment supplies what public databases do not: systematic geometry and dense wall measurements.
+          </aside>
+        </section>
+
+        <section>
+          <div class="slide-header">
+            <p class="eyebrow">Step 02</p>
+            <h2>Classifying Wall Extreme-Pressure Patterns</h2>
+            <p class="core-message">Wall \(GC_p\) maps are transformed into PCA-score features, then clustered to identify geometry-dependent pressure classes.</p>
+          </div>
+          <div class="analysis-pipeline" data-interaction>
+            <button class="analysis-step fragment fade-up is-active" data-card data-title="Extreme-pressure maps" data-detail="Generate \(GC_p\) contour maps for all wall cases from the unified pressure database." data-tags="\(GC_p\) maps|Wall cases">
+              <span>01</span><strong>\(GC_p\) maps</strong>
+            </button>
+            <button class="analysis-step fragment fade-up" data-card data-title="PCA-based feature extraction" data-detail="Extract dominant spatial modes and represent each wall case using PCA scores in a reduced-dimensional feature space." data-tags="Spatial modes|PCA scores">
+              <span>02</span><strong>PCA features</strong>
+            </button>
+            <button class="analysis-step fragment fade-up" data-card data-title="Clustering" data-detail="Cluster wall cases in the PCA-score feature space to identify typical pressure-pattern classes." data-tags="Reduced space|Pattern classes">
+              <span>03</span><strong>Clustering</strong>
+            </button>
+            <button class="analysis-step fragment fade-up" data-card data-title="Geometry-based boundaries" data-detail="Relate classes to \(B/H\), \(D/B\), and \(D/H\) to determine transition boundaries between pressure-pattern classes." data-tags="\(B/H\)|\(D/B\)|\(D/H\)">
+              <span>04</span><strong>Geometry boundaries</strong>
+            </button>
+            <button class="analysis-step fragment fade-up" data-card data-title="Physical interpretation" data-detail="Validate physical consistency using critical wind directions, event-averaged maps, conditional POD, and spectral POD." data-tags="Critical wind direction|POD|SPOD">
+              <span>05</span><strong>Physical evidence</strong>
+            </button>
+            <aside class="detail-panel wide fragment fade-up" data-detail-panel>
+              <h3 data-detail-title>Extreme-pressure maps</h3>
+              <p data-detail-text>Generate \(GC_p\) contour maps for all wall cases from the unified pressure database.</p>
+              <div class="chip-row" data-detail-tags><span>\(GC_p\) maps</span><span>Wall cases</span></div>
+            </aside>
+          </div>
+          <div class="evidence-strip fragment fade-up">
+            <span>Critical wind direction</span>
+            <span>Event-averaged maps</span>
+            <span>Conditional POD</span>
+            <span>Spectral POD</span>
+          </div>
+          <aside class="notes">
+            Be precise: clustering is not based on eigenvalue differences for individual samples. It is based on PCA scores or reduced-dimensional feature vectors.
+          </aside>
+        </section>
+
+        <section>
+          <div class="slide-header">
+            <p class="eyebrow">Step 03</p>
+            <h2>Geometry-Dependent Aerodynamic Zoning</h2>
+            <p class="core-message">Zoning is needed because high-suction and stable wall regions are governed by different aerodynamic mechanisms.</p>
+          </div>
+          <div class="aero-zoning-layout" data-interaction data-active-zone="high">
+            <div class="aero-wall-card fragment fade-up">
+              <div class="aero-wall-map" aria-label="Wall zoning diagram with high-suction and stable regions">
+                <span class="aero-region high-suction corner-zone wall-corner-tl"></span>
+                <span class="aero-region high-suction corner-zone wall-corner-tr"></span>
+                <span class="aero-region high-suction corner-zone wall-corner-bl"></span>
+                <span class="aero-region high-suction corner-zone wall-corner-br"></span>
+                <span class="aero-region stable-zone"></span>
+                <span class="boundary-line boundary-x"></span>
+                <span class="measure-arrow measure-x"><span>\(x_s=f(B)\)</span></span>
+                <span class="wall-dimension dim-b">\(B\)</span>
+                <span class="wall-dimension dim-h">\(H\)</span>
+              </div>
+              <div class="aero-legend">
+                <span class="legend-high">High-suction region</span>
+                <span class="legend-stable">Stable region</span>
+              </div>
+            </div>
+            <div class="mechanism-stack fragment fade-up">
+              <button class="mechanism-card is-active" data-card data-zone="high" data-title="High-suction region" data-detail="Controlled by local separation, corner effects, and edge acceleration. For example, the horizontal boundary of the corner high-suction region can be described as \(x_s=f(B)\)." data-tags="Separation|Corner effect|Boundary example">
+                <span>01</span>
+                <strong>High-suction region</strong>
+                <small>Large extreme suction with coherent spatial structure.</small>
+              </button>
+              <button class="mechanism-card" data-card data-zone="stable" data-title="Stable region" data-detail="A relatively weak-disturbance region away from dominant local separation and corner effects. Pressure variation is smaller, so it should be discussed separately from high-suction behavior." data-tags="Weak variation|Background pressure|Separate \(GC_p\) behavior">
+                <span>02</span>
+                <strong>Stable region</strong>
+                <small>Smaller extremes and weaker spatial variation.</small>
+              </button>
+            </div>
+            <aside class="detail-panel compact fragment fade-up" data-detail-panel>
+              <h3 data-detail-title>High-suction region</h3>
+              <p data-detail-text>Controlled by local separation, corner effects, and edge acceleration. For example, the horizontal boundary of the corner high-suction region can be described as \(x_s=f(B)\).</p>
+              <div class="chip-row" data-detail-tags><span>Separation</span><span>Corner effect</span><span>Boundary example</span></div>
+            </aside>
+          </div>
+          <div class="zoning-takeaway fragment fade-up">
+            Different mechanisms require separate discussion of pressure behavior and \(GC_p\) relationships.
+          </div>
+          <aside class="notes">
+            Explain that zoning is not introduced for visual subdivision only. It separates regions governed by different flow mechanisms. Use \(x_s=f(B)\) as one simple boundary example for the high-suction corner region, then compare high-suction and stable regions separately.
+          </aside>
+        </section>
+
+        <section>
+          <div class="slide-header">
+            <p class="eyebrow">Step 04</p>
+            <h2>Geometry-Dependent \(GC_p\)-Area Relationship</h2>
+            <p class="core-message">Candidate geometry-normalized area parameters are tested to identify the controlling geometric scale for \(GC_p\) magnitude.</p>
+          </div>
+          <div class="curve-comparison">
+            <article class="curve-panel fragment fade-up zoomable">
+              <h3>Conventional \(GC_p\)-\(A\)</h3>
+              <div class="curve-visual image-visual">
+                <img src="assets/gcp-area-conventional.png" alt="Conventional GCp versus effective wind area plot">
+              </div>
+              <p>Large scatter across geometries.</p>
+            </article>
+            <article class="curve-panel fragment fade-up zoomable">
+              <h3>Geometry-normalized \(GC_p\)-\(A^*\)</h3>
+              <div class="curve-visual image-visual">
+                <img src="assets/gcp-area-normalized.png" alt="Geometry-normalized GCp versus normalized area plot">
+              </div>
+              <p>Improved convergence after geometry normalization.</p>
+            </article>
+          </div>
+          <div class="parameter-panel fragment fade-up">
+            <span>\(\frac{A}{H^2}\)</span>
+            <span>\(\frac{A}{B^2}\)</span>
+            <span>\(\frac{A}{D^2}\)</span>
+            <span>\(\frac{A}{HB}\)</span>
+            <span>\(\frac{A}{HD}\)</span>
+            <span>\(\frac{A}{BD}\)</span>
+          </div>
+          <div class="takeaway fragment fade-up">Output: geometry-informed \(GC_p\) curves for each wall class and pressure region.</div>
+          <aside class="notes">
+            Explain the candidate parameters and the goal of finding the parameter with strongest curve convergence or lowest scatter. Keep the convergence metric flexible at this stage.
+          </aside>
+        </section>
+
+        <section class="chapter-slide">
+          <p class="eyebrow">Progress</p>
+          <h2>Current Work and Data Preparation</h2>
+          <p>The experimental matrix, terrain validation, NIST-UWO standardization, and timeline set up the next analysis stage.</p>
+        </section>
+
+        <section>
+          <div class="slide-header">
+            <p class="eyebrow">Current Progress</p>
+            <h2>Wind-Tunnel Pressure Measurements</h2>
+            <p class="core-message">A \(1{:}100\) scaled program has been designed with \(42\) building models, dense wall taps, and \(20\) wind-direction cases.</p>
+          </div>
+          <div class="progress-layout">
+            <article class="figure-panel fragment fade-up zoomable">
+              <img class="figure-image progress-image" src="assets/building-model-configurations.png" alt="Building model configurations for the wind-tunnel program">
+              <h3>Systematic model matrix</h3>
+              <p>Scale \(1{:}100\); \(D=48\,\mathrm{m}\); \(B=12\text{--}48\,\mathrm{m}\); \(H=6\text{--}48\,\mathrm{m}\).</p>
+            </article>
+            <article class="figure-panel fragment fade-up zoomable">
+              <img class="figure-image progress-image" src="assets/tap-layout-wind-directions.png" alt="Wall tap layout and wind direction cases">
+              <h3>Tap layout and wind directions</h3>
+              <p>Dense wall tap layout with edge refinement and 20 wind-direction cases.</p>
+            </article>
+          </div>
+          <div class="stat-strip fragment fade-up">
+            <span><strong>\(42\)</strong> models</span>
+            <span><strong>\(6\times7\)</strong> \(B\)-\(H\) matrix</span>
+            <span><strong>\(20\)</strong> wind directions</span>
+            <span><strong>\(D=48\,\mathrm{m}\)</strong> fixed depth</span>
+          </div>
+          <aside class="notes">
+            State that the experimental program is already designed and directly supports the geometry-dependent wall C&amp;C analysis.
+          </aside>
+        </section>
+
+        <section>
+          <div class="slide-header">
+            <p class="eyebrow">Validation</p>
+            <h2>Validation of Open and Suburban Terrain Flows</h2>
+            <p class="core-message">Measured wind profiles and velocity spectra are compared with ESDU recommendations.</p>
+          </div>
+          <div class="plot-grid">
+            <article class="plot-card fragment fade-up zoomable">
+              <span class="terrain-label">Open</span>
+              <img class="plot-image" src="assets/terrain-open-profile.png" alt="Open terrain mean wind profile validation">
+              <h3>Mean wind profile</h3>
+            </article>
+            <article class="plot-card fragment fade-up zoomable">
+              <span class="terrain-label">Suburban</span>
+              <img class="plot-image" src="assets/terrain-suburban-profile.png" alt="Suburban terrain mean wind profile validation">
+              <h3>Mean wind profile</h3>
+            </article>
+            <article class="plot-card fragment fade-up zoomable">
+              <span class="terrain-label">Open</span>
+              <img class="plot-image" src="assets/terrain-open-spectrum.png" alt="Open terrain velocity spectrum validation">
+              <h3>Velocity spectrum at 48 m</h3>
+            </article>
+            <article class="plot-card fragment fade-up zoomable">
+              <span class="terrain-label">Suburban</span>
+              <img class="plot-image" src="assets/terrain-suburban-spectrum.png" alt="Suburban terrain velocity spectrum validation">
+              <h3>Velocity spectrum at 48 m</h3>
+            </article>
+          </div>
+          <div class="takeaway fragment fade-up">Reasonable agreement with ESDU references supports the reliability of the simulated boundary-layer flows.</div>
+          <aside class="notes">
+            This slide validates the wind fields before pressure analysis. Mention mean profiles and spectra for both open and suburban terrains.
+          </aside>
+        </section>
+
+        <section>
+          <div class="slide-header">
+            <p class="eyebrow">Public Data</p>
+            <h2>Standardization of NIST-UWO Data for Wall Pressure Analysis</h2>
+            <p class="core-message">NIST-UWO data will be standardized through direction alignment, wall mirroring, and equivalent-wall merging.</p>
+          </div>
+          <div class="standardization-layout">
+            <article class="figure-panel fragment fade-up zoomable">
+              <img class="figure-image public-data-image" src="assets/nist-models.png" alt="NIST low-rise building model configurations">
+              <h3>Model dimensions</h3>
+              <p>Supplementary low-rise cases for database expansion and comparison.</p>
+            </article>
+            <article class="figure-panel fragment fade-up zoomable">
+              <div class="tap-visual nist large"></div>
+              <h3>Tap layout and wind directions</h3>
+              <p>Raw wall cases need alignment before systematic comparison.</p>
+            </article>
+          </div>
+          <div class="standard-pipeline fragment fade-up">
+            <span data-note="Original NIST-UWO cases and metadata.">Raw data</span>
+            <b>&rarr;</b>
+            <span data-note="Unify the wind-direction definition across models.">Direction alignment</span>
+            <b>&rarr;</b>
+            <span data-note="Use symmetry or mirrored wall data where appropriate.">Wall mirroring</span>
+            <b>&rarr;</b>
+            <span data-note="Combine equivalent wall cases with the same model dimensions.">Wall merging</span>
+            <b>&rarr;</b>
+            <span data-note="Produce consistent wall-pressure cases for analysis.">Standardized dataset</span>
+          </div>
+          <div class="takeaway fragment fade-up">Output: standardized NIST-UWO wall-pressure cases for unified analysis.</div>
+          <aside class="notes">
+            Explain why raw public data cannot be compared directly. Direction settings and tap configurations vary, so standardization is needed before \(GC_p\) calculation, classification, and zoning.
+          </aside>
+        </section>
+
+        <section class="timeline-image-slide">
+          <div class="timeline-image-frame zoomable">
+            <img src="assets/research-timeline.png" alt="Research timeline from January 2025 to January 2029">
+          </div>
+          <aside class="notes">
+            Summarize the completed work through May 2026, then walk through analysis, validation, writing, and final defense preparation.
+          </aside>
+        </section>
+      </div>
+    </div>
+
+    <div class="zoom-overlay" aria-hidden="true">
+      <button class="zoom-close" type="button" aria-label="Close expanded figure">x</button>
+      <div class="zoom-content"></div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/notes/notes.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/math/math.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
