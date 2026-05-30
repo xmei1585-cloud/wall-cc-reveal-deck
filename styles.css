@@ -224,6 +224,68 @@ body {
   animation-duration: 38s;
 }
 
+.reveal .slide-number {
+  left: 28px;
+  right: auto;
+  bottom: 18px;
+  padding: 5px 9px;
+  border: 1px solid rgba(20, 34, 53, 0.12);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.74);
+  box-shadow: 0 8px 20px rgba(20, 34, 53, 0.08);
+  color: var(--muted);
+  font-family: Aptos, "Helvetica Neue", Arial, sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.ending-slide {
+  position: relative;
+  display: grid;
+  place-items: center;
+  text-align: center;
+}
+
+.ending-content {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  gap: 18px;
+  justify-items: center;
+}
+
+.ending-content h2 {
+  font-size: 76px;
+}
+
+.ending-question {
+  color: var(--muted);
+  font-size: 28px;
+  font-weight: 650;
+}
+
+.ending-meta {
+  position: absolute;
+  right: 66px;
+  bottom: 68px;
+  left: 66px;
+  z-index: 3;
+  display: flex;
+  justify-content: center;
+  gap: 16px 46px;
+  padding-top: 22px;
+  border-top: 1px solid var(--line);
+}
+
+.ending-meta > span {
+  color: var(--muted);
+  font-size: 17px;
+}
+
+.ending-lines {
+  opacity: 0.18;
+}
+
 .split-layout {
   display: grid;
   grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);

@@ -105,6 +105,8 @@
     hash: true,
     controls: true,
     progress: true,
+    slideNumber: "c/t",
+    showSlideNumber: "all",
     center: false,
     transition: "fade",
     backgroundTransition: "fade",
