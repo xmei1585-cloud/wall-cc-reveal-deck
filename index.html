@@ -160,29 +160,41 @@
             <h2>Research Gaps in Wall C&amp;C Extreme-Pressure Analysis</h2>
             <p class="core-message">A systematic understanding of geometry-dependent pressure patterns, mechanisms, and magnitudes remains limited.</p>
           </div>
-          <div class="card-row">
-            <article class="research-card fragment fade-up">
+          <div class="card-row research-gap-row">
+            <article class="research-card fragment fade-up" data-fragment-index="0">
               <span class="card-index">Gap 01</span>
               <h3>Limited systematic classification</h3>
-              <p>Prior findings are often tied to specific dimensions or narrow geometry ranges.</p>
-              <div class="chip-row"><span>Specific cases</span><span>Limited range</span><span>No class map</span></div>
+              <div class="gap-talk-track">
+                <p><b>Known:</b> Previous studies identify pressure features for selected models.</p>
+                <p><b>Missing:</b> A systematic classification across building geometries is still limited.</p>
+                <p><b>Need:</b> Build wall pressure-pattern classes before discussing zones or coefficients.</p>
+              </div>
+              <div class="chip-row"><span>Case-based</span><span>Limited range</span><span>No class map</span></div>
             </article>
-            <article class="research-card fragment fade-up">
+            <article class="research-card fragment fade-up" data-fragment-index="1">
               <span class="card-index">Gap 02</span>
               <h3>Insufficient mechanism interpretation</h3>
-              <p>Data-driven zoning is rarely connected back to separation, reattachment, shedding, and wake behavior.</p>
-              <div class="chip-row"><span>Flow link</span><span>Vortex shedding</span><span>POD / SPOD</span></div>
+              <div class="gap-talk-track">
+                <p><b>Known:</b> Extreme-pressure regions can be observed from wall pressure maps.</p>
+                <p><b>Missing:</b> The zones are not always explained through local flow mechanisms.</p>
+                <p><b>Need:</b> Relate zoning to separation, reattachment, shedding, and wake behavior.</p>
+              </div>
+              <div class="chip-row"><span>Flow link</span><span>Separation</span><span>Wake effect</span></div>
             </article>
-            <article class="research-card fragment fade-up">
+            <article class="research-card fragment fade-up" data-fragment-index="2">
               <span class="card-index">Gap 03</span>
               <h3>Unclear geometry effect on magnitude</h3>
-              <p>Wall \(GC_p\) magnitude may depend on geometry, not only effective wind area.</p>
-              <div class="chip-row"><span>Pressure magnitude</span><span>Geometry</span><span>\(GC_p\) curves</span></div>
+              <div class="gap-talk-track">
+                <p><b>Known:</b> Code-style \(GC_p\) curves mainly use effective wind area.</p>
+                <p><b>Missing:</b> The role of \(H\), \(B\), \(D\), and aspect ratios is not clear.</p>
+                <p><b>Need:</b> Test geometry-normalized parameters for pressure magnitude prediction.</p>
+              </div>
+              <div class="chip-row"><span>Magnitude</span><span>Geometry scale</span><span>\(GC_p\) curves</span></div>
             </article>
           </div>
-          <div class="takeaway fragment fade-up">A systematic framework is needed to classify, interpret, and quantify geometry effects.</div>
+          <div class="takeaway fragment fade-up" data-fragment-index="3">A systematic framework is needed to classify pressure patterns, interpret flow mechanisms, and quantify geometry effects.</div>
           <aside class="notes">
-            Move from code limitations into research gaps. The three gaps map directly to the three objectives on the next slide.
+            Present the gaps one by one. First, explain that previous findings are mostly case-based, so systematic classification is needed. Second, explain that pressure zones should be interpreted through local flow mechanisms. Third, explain that effective wind area alone may not capture geometry effects on \(GC_p\). Then connect the three gaps to the three objectives on the next slide.
           </aside>
         </section>
 

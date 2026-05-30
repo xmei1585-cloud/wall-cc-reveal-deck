@@ -804,14 +804,34 @@ body {
 }
 
 .research-card {
-  min-height: 300px;
+  display: grid;
+  grid-template-rows: auto auto 1fr auto;
+  min-height: 332px;
   padding: 22px;
 }
 
 .research-card p {
-  margin-top: 12px;
   color: var(--muted);
-  font-size: 17px;
+  font-size: 15px;
+}
+
+.research-gap-row {
+  gap: 18px;
+}
+
+.gap-talk-track {
+  display: grid;
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.gap-talk-track p {
+  margin: 0;
+  line-height: 1.35;
+}
+
+.gap-talk-track b {
+  color: var(--ink);
 }
 
 .card-index,
