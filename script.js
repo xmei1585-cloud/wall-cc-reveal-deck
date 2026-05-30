@@ -13,6 +13,24 @@
     }
   }
 
+  function setupPageNumber() {
+    var pageNumber = document.querySelector(".deck-page-number");
+    if (!pageNumber) {
+      pageNumber = document.createElement("div");
+      pageNumber.className = "deck-page-number";
+      pageNumber.setAttribute("aria-label", "Slide number");
+      document.body.appendChild(pageNumber);
+    }
+
+    function updatePageNumber() {
+      pageNumber.textContent = String(Reveal.getSlidePastCount() + 1);
+    }
+
+    updatePageNumber();
+    Reveal.on("slidechanged", updatePageNumber);
+    Reveal.on("ready", updatePageNumber);
+  }
+
   function setTags(container, tags) {
     container.innerHTML = "";
     tags.split("|").filter(Boolean).forEach(function (tag) {
@@ -105,8 +123,7 @@
     hash: true,
     controls: true,
     progress: true,
-    slideNumber: "c",
-    showSlideNumber: "all",
+    slideNumber: false,
     center: false,
     transition: "fade",
     backgroundTransition: "fade",
@@ -115,5 +132,5 @@
       throwOnError: false
     },
     plugins: plugins
-  });
+  }).then(setupPageNumber);
 })();

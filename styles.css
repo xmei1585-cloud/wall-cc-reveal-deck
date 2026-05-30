@@ -225,8 +225,12 @@ body {
 }
 
 .reveal .slide-number {
+  display: none !important;
+}
+
+.deck-page-number {
+  position: fixed;
   left: 28px;
-  right: auto;
   bottom: 18px;
   padding: 5px 9px;
   border: 1px solid rgba(20, 34, 53, 0.12);
@@ -237,6 +241,9 @@ body {
   font-family: Aptos, "Helvetica Neue", Arial, sans-serif;
   font-size: 12px;
   font-weight: 700;
+  line-height: 1;
+  z-index: 40;
+  pointer-events: none;
 }
 
 .ending-slide {
