@@ -526,8 +526,7 @@ body {
   transform: translateX(-120%);
 }
 
-.geometry-slide.present .geometry-card:not(.geometry-card-delayed) .geometry-image-frame::before,
-.geometry-slide.present .geometry-card-delayed.visible .geometry-image-frame::before {
+.geometry-slide.present .geometry-image-frame.visible::before {
   animation: pressureSweep 1500ms ease-out 520ms both;
 }
 
@@ -550,7 +549,7 @@ body {
   display: none;
 }
 
-.geometry-slide.present .geometry-image-frame::after {
+.geometry-slide.present .geometry-image-frame.visible::after {
   animation: pressureGlow 3100ms ease-in-out 1050ms infinite;
 }
 
@@ -587,19 +586,19 @@ body {
   top: 152px;
 }
 
-.geometry-slide.present .geometry-card-delayed.visible .corner-pulse {
+.geometry-slide.present .pressure-edge.visible .corner-pulse {
   animation: cornerPulse 2600ms ease-in-out infinite;
 }
 
-.geometry-slide.present .geometry-card-delayed.visible .corner-tr {
+.geometry-slide.present .pressure-edge.visible .corner-tr {
   animation-delay: 180ms;
 }
 
-.geometry-slide.present .geometry-card-delayed.visible .corner-bl {
+.geometry-slide.present .pressure-edge.visible .corner-bl {
   animation-delay: 360ms;
 }
 
-.geometry-slide.present .geometry-card-delayed.visible .corner-br {
+.geometry-slide.present .pressure-edge.visible .corner-br {
   animation-delay: 540ms;
 }
 
@@ -612,8 +611,7 @@ body {
   object-fit: contain;
 }
 
-.geometry-slide.present .geometry-card:not(.geometry-card-delayed) .geometry-image-frame img,
-.geometry-slide.present .geometry-card-delayed.visible .geometry-image-frame img {
+.geometry-slide.present .geometry-image-frame.visible img {
   animation: modelFloat 5200ms ease-in-out 800ms infinite;
 }
 
