@@ -372,8 +372,8 @@ body {
 
 .mini-card {
   position: relative;
-  min-height: 82px;
-  padding: 16px;
+  min-height: 96px;
+  padding: 14px 16px;
   border: 1px solid var(--line);
   border-radius: var(--radius);
   background: var(--surface);
@@ -383,6 +383,13 @@ body {
 .mini-card strong {
   color: var(--ink);
   font-size: 18px;
+}
+
+.mini-card p {
+  margin-top: 8px;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.3;
 }
 
 .mini-card::after,
