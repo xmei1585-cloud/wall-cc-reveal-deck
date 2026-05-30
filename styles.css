@@ -1794,12 +1794,12 @@ button {
 }
 
 .timeline-image-frame {
-  width: min(1120px, 98%);
+  width: min(1210px, 99%);
   margin: 0 auto;
 }
 
 .timeline-image-frame img {
-  max-height: 650px;
+  max-height: 680px;
   box-shadow: var(--shadow);
 }
 
