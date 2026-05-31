@@ -6,7 +6,7 @@
     <title>Wall C&amp;C Extreme Wind Pressures</title>
     <link rel="icon" href="data:,">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.css">
-    <link rel="stylesheet" href="styles.css?v=zoning-xs-boundary">
+    <link rel="stylesheet" href="styles.css?v=zoning-xs-arrow-stable">
   </head>
   <body>
     <div class="reveal">
@@ -388,7 +388,6 @@
                 <span class="boundary-line boundary-x"></span>
                 <span class="boundary-label boundary-xs">\(x_s\)</span>
                 <span class="measure-arrow measure-x" aria-hidden="true"></span>
-                <span class="formula-callout zoning-formula">\(x_s=f(B)\)</span>
                 <span class="wall-dimension dim-b">\(B\)</span>
                 <span class="wall-dimension dim-h">\(H\)</span>
               </div>
@@ -398,20 +397,20 @@
               </div>
             </div>
             <div class="mechanism-stack fragment fade-up">
-              <button class="mechanism-card is-active" data-card data-zone="high" data-title="High-suction region" data-detail="Controlled by local separation, corner effects, and edge acceleration. For example, the horizontal boundary of the corner high-suction region can be described as \(x_s=f(B)\)." data-tags="Separation|Corner effect|Boundary example">
+              <button class="mechanism-card is-active" data-card data-zone="high" data-title="High-suction region" data-detail="Controlled by local separation, corner effects, and edge acceleration. For example, the corner high-suction boundary can be related to the building width \(B\)." data-tags="Separation|Corner effect|Boundary example">
                 <span>01</span>
                 <strong>High-suction region</strong>
                 <small>Large extreme suction with coherent spatial structure.</small>
               </button>
-              <button class="mechanism-card" data-card data-zone="stable" data-title="Stable region" data-detail="A relatively weak-disturbance region away from dominant local separation and corner effects. Pressure variation is smaller, so it should be discussed separately from high-suction behavior." data-tags="Weak variation|Background pressure|Separate \(GC_p\) behavior">
+              <button class="mechanism-card" data-card data-zone="stable" data-title="Stable region" data-detail="All wall area outside the four high-suction corner regions is treated as the stable region. Pressure variation is smaller, so it should be discussed separately from high-suction behavior." data-tags="Non-corner wall area|Background pressure|Separate \(GC_p\) behavior">
                 <span>02</span>
                 <strong>Stable region</strong>
-                <small>Smaller extremes and weaker spatial variation.</small>
+                <small>All non-corner wall area with weaker spatial variation.</small>
               </button>
             </div>
             <aside class="detail-panel compact fragment fade-up" data-detail-panel>
               <h3 data-detail-title>High-suction region</h3>
-              <p data-detail-text>Controlled by local separation, corner effects, and edge acceleration. For example, the horizontal boundary of the corner high-suction region can be described as \(x_s=f(B)\).</p>
+              <p data-detail-text>Controlled by local separation, corner effects, and edge acceleration. For example, the corner high-suction boundary can be related to the building width \(B\).</p>
               <div class="chip-row" data-detail-tags><span>Separation</span><span>Corner effect</span><span>Boundary example</span></div>
             </aside>
           </div>
@@ -419,7 +418,7 @@
             Different mechanisms require separate discussion of pressure behavior and \(GC_p\) relationships.
           </div>
           <aside class="notes">
-            Explain that zoning is not introduced for visual subdivision only. It separates regions governed by different flow mechanisms. Use \(x_s=f(B)\) as one simple boundary example for the high-suction corner region, then compare high-suction and stable regions separately.
+            Explain that zoning is not introduced for visual subdivision only. It separates regions governed by different flow mechanisms. Use \(x_s\) as one simple boundary indicator for the high-suction corner region, then compare high-suction and stable regions separately.
           </aside>
         </section>
 

@@ -1396,6 +1396,7 @@ button {
   inset: 72px 100px 82px 106px;
   border: 2px dashed rgba(20, 34, 53, 0.58);
   content: "";
+  display: none;
 }
 
 .aero-region {
@@ -1409,6 +1410,7 @@ button {
 
 .corner-zone {
   inset: auto;
+  z-index: 3;
   width: 72px;
   height: 58px;
   border-color: rgba(84, 127, 156, 0.72);
@@ -1436,9 +1438,10 @@ button {
 }
 
 .stable-zone {
-  inset: 82px 116px 92px 120px;
-  border-color: rgba(20, 34, 53, 0.24);
-  background: rgba(20, 34, 53, 0.07);
+  inset: 24px 46px 34px 42px;
+  z-index: 1;
+  border-color: rgba(115, 139, 120, 0.4);
+  background: rgba(115, 139, 120, 0.13);
 }
 
 .boundary-line {
@@ -1455,8 +1458,7 @@ button {
   border-left: 2px dashed rgba(169, 130, 69, 0.82);
 }
 
-.boundary-label,
-.formula-callout {
+.boundary-label {
   position: absolute;
   z-index: 7;
   display: inline-block;
@@ -1473,17 +1475,9 @@ button {
 }
 
 .boundary-xs {
-  top: 145px;
-  left: 114px;
-  transform: translate(-50%, -50%);
-}
-
-.zoning-formula {
-  top: 122px;
-  left: 50%;
-  padding: 5px 10px;
-  font-size: 17px;
-  transform: translateX(-50%);
+  top: 52px;
+  left: 122px;
+  transform: translateY(-50%);
 }
 
 .wall-dimension {
