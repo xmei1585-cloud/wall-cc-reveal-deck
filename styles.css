@@ -7,6 +7,7 @@
   --muted: #6f7a86;
   --line: #d6dbdc;
   --accent: #a98245;
+  --uwo-purple: #4f2683;
   --accent-2: #4f7f8c;
   --green: #738b78;
   --blue: #547f9c;
@@ -46,6 +47,48 @@ body {
   height: 720px;
   padding: 12px 66px 24px;
   overflow: hidden;
+}
+
+.reveal .slides section::before {
+  position: absolute;
+  top: 86px;
+  right: 32px;
+  bottom: 66px;
+  z-index: 8;
+  width: 2px;
+  content: "";
+  pointer-events: none;
+  background:
+    repeating-linear-gradient(
+      180deg,
+      transparent 0 18px,
+      rgba(79, 38, 131, 0.28) 18px 20px,
+      transparent 20px 34px
+    ),
+    linear-gradient(
+      180deg,
+      rgba(79, 38, 131, 0.38),
+      rgba(169, 130, 69, 0.48),
+      rgba(84, 127, 156, 0.18)
+    );
+  border-radius: 999px;
+}
+
+.reveal .slides section::after {
+  position: absolute;
+  top: 50%;
+  right: 15px;
+  z-index: 9;
+  content: "UWO | Wind Engineering";
+  transform: translateY(-50%) rotate(90deg);
+  transform-origin: center;
+  color: rgba(79, 38, 131, 0.54);
+  font-size: 10px;
+  font-weight: 800;
+  line-height: 1;
+  pointer-events: none;
+  text-transform: uppercase;
+  white-space: nowrap;
 }
 
 .reveal h1,
