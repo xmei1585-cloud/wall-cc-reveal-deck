@@ -44,7 +44,7 @@ body {
 
 .reveal .slides section {
   height: 720px;
-  padding: 52px 66px;
+  padding: 12px 66px 24px;
   overflow: hidden;
 }
 
@@ -95,7 +95,7 @@ body {
 .slide-header {
   display: grid;
   gap: 10px;
-  margin-bottom: 26px;
+  margin-bottom: 20px;
 }
 
 .core-message {
@@ -2223,7 +2223,7 @@ button {
 
 @media (max-width: 900px) {
   .reveal .slides section {
-    padding: 34px;
+    padding: 12px 34px 24px;
   }
 
   .reveal h1 {
