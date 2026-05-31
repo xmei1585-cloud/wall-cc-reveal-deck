@@ -250,7 +250,7 @@ body {
 .deck-wind-footer {
   position: fixed;
   right: 220px;
-  bottom: 8px;
+  bottom: 14px;
   left: 128px;
   z-index: 39;
   height: 24px;
@@ -2304,7 +2304,7 @@ button {
 
   .deck-wind-footer {
     right: 154px;
-    bottom: 8px;
+    bottom: 14px;
     left: 82px;
     font-size: 9px;
   }
