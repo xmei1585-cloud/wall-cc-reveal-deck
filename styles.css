@@ -1440,8 +1440,8 @@ button {
 .stable-zone {
   inset: 24px 46px 34px 42px;
   z-index: 1;
-  border-color: rgba(115, 139, 120, 0.4);
-  background: rgba(115, 139, 120, 0.13);
+  border-color: rgba(115, 139, 120, 0.64);
+  background: rgba(115, 139, 120, 0.24);
 }
 
 .boundary-line {
@@ -1455,7 +1455,7 @@ button {
   top: 24px;
   left: 114px;
   height: calc(100% - 58px);
-  border-left: 2px dashed rgba(169, 130, 69, 0.82);
+  border-left: 2px solid rgba(169, 130, 69, 0.86);
 }
 
 .boundary-label {
@@ -1620,13 +1620,13 @@ button {
 }
 
 .aero-zoning-layout[data-active-zone="high"] .stable-zone {
-  opacity: 0.52;
+  opacity: 0.9;
 }
 
 .aero-zoning-layout[data-active-zone="stable"] .stable-zone {
-  background: rgba(115, 139, 120, 0.18);
-  border-color: rgba(115, 139, 120, 0.72);
-  box-shadow: 0 0 0 6px rgba(115, 139, 120, 0.12);
+  background: rgba(115, 139, 120, 0.3);
+  border-color: rgba(115, 139, 120, 0.86);
+  box-shadow: 0 0 0 6px rgba(115, 139, 120, 0.16);
   transform: translateY(-2px);
 }
 
