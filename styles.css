@@ -1857,67 +1857,6 @@ button {
   top: calc(100% + 8px);
 }
 
-.standardization-slide {
-  padding-top: 38px !important;
-  padding-bottom: 34px !important;
-}
-
-.standardization-slide .slide-header {
-  gap: 8px;
-  margin-bottom: 14px;
-}
-
-.standardization-slide .core-message {
-  font-size: 18px;
-}
-
-.standardization-layout-three {
-  grid-template-columns: 1.04fr 0.98fr 0.98fr;
-  gap: 14px;
-  margin-bottom: 9px;
-}
-
-.standardization-layout-three .figure-panel {
-  min-height: 240px;
-  padding: 13px;
-  gap: 7px;
-}
-
-.standardization-layout-three .figure-image {
-  height: 158px;
-}
-
-.standardization-layout-three .nist-wind-direction-image {
-  height: 158px;
-}
-
-.standardization-layout-three h3 {
-  margin-top: 0;
-  font-size: 17px;
-}
-
-.standardization-layout-three p {
-  font-size: 13px;
-  line-height: 1.32;
-}
-
-.standardization-slide .standard-pipeline {
-  gap: 8px;
-  padding: 10px 12px;
-  margin-bottom: 8px;
-}
-
-.standardization-slide .standard-pipeline > span {
-  min-height: 34px;
-  padding: 6px 9px;
-  font-size: 13px;
-}
-
-.standardization-slide .takeaway {
-  padding: 12px 16px;
-  font-size: 17px;
-}
-
 .timeline-heading {
   grid-template-columns: 1fr auto;
   align-items: end;
