@@ -1440,22 +1440,11 @@ button {
 .stable-zone {
   inset: 24px 46px 34px 42px;
   z-index: 1;
-  border-color: rgba(115, 139, 120, 0.64);
+  border: 3px solid rgba(115, 139, 120, 0.78);
   background: rgba(115, 139, 120, 0.24);
-}
-
-.boundary-line {
-  position: absolute;
-  z-index: 4;
-  display: block;
-  border-color: rgba(169, 130, 69, 0.82);
-}
-
-.boundary-x {
-  top: 24px;
-  left: 114px;
-  height: calc(100% - 58px);
-  border-left: 2px solid rgba(169, 130, 69, 0.86);
+  box-shadow:
+    inset 0 0 0 2px rgba(255, 255, 255, 0.5),
+    0 0 0 3px rgba(115, 139, 120, 0.08);
 }
 
 .boundary-label {
@@ -1475,9 +1464,9 @@ button {
 }
 
 .boundary-xs {
-  top: 52px;
-  left: 122px;
-  transform: translateY(-50%);
+  top: 60px;
+  left: 78px;
+  transform: translateX(-50%);
 }
 
 .wall-dimension {
