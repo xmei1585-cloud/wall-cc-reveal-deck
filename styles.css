@@ -52,7 +52,7 @@ body {
 .reveal .slides section::before {
   position: absolute;
   right: 160px;
-  bottom: 4px;
+  bottom: 0;
   left: 128px;
   z-index: 8;
   height: 2px;
@@ -78,7 +78,7 @@ body {
 .reveal .slides section::after {
   position: absolute;
   right: 160px;
-  bottom: 12px;
+  bottom: 3px;
   z-index: 9;
   content: "UWO | Wind Engineering";
   color: rgba(79, 38, 131, 0.54);
@@ -2271,12 +2271,12 @@ button {
   .reveal .slides section::before {
     right: 118px;
     left: 82px;
-    bottom: 4px;
+    bottom: 0;
   }
 
   .reveal .slides section::after {
     right: 118px;
-    bottom: 12px;
+    bottom: 3px;
     font-size: 9px;
   }
 
